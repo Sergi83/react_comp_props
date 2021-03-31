@@ -2,7 +2,7 @@ import React from 'react';
 import C from './C';
 import A from './A';
 
-function B(numA, numC) {
+function B(props) {
     console.log(resA, resC, 'B res');
   return (
     <div className="App">

@@ -26,18 +26,17 @@ class C extends React.Component {
     getRandomNum (numA, numB) {
         if (numA > numB) {
             this.setState({ 
-                numC: Math.floor(Math.random() * (numA - numB + 1)) + numB
+                numC: (Math.floor(Math.random() * (numA - numB + 1)) + numB).target.value
             })
         } else if (numA < numB) {
             this.setState({ 
-                numC: Math.floor(Math.random() * (numB - numA + 1)) + numA
+                numC: (Math.floor(Math.random() * (numB - numA + 1)) + numA).target.value
             })
         } else if (numA == numB) {
             this.setState({ 
-                numC: Math.floor(Math.random() * (numA - numB + 1)) + numB
+                numC: (Math.floor(Math.random() * (numA - numB + 1)) + numB).target.value
             })
         } else {
-            this.setState({numC: "error"});
             console.log("Some error: numA, numB", numA, numB)
         }
     }

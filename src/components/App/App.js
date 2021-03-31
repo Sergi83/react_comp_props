@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ClassComponent from './../ClassComponent/ClassComponent';
+import A from './../ClassComponent/A';
 
 function App(props) {
   console.log(props.data);

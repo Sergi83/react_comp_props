@@ -10,11 +10,9 @@ import B from './B';
 const mult = 1000;
 const result = numC*mult;
 
-function A(props) {
-  console.log(numA, numC 'A res');
-  const mult = 1000;
-  const result = numC*mult;
-  
+function A(props, result) {
+  console.log(numA, numC, 'A res');
+
   return (
     <div className="App">
         <h1>Result from component A</h1>

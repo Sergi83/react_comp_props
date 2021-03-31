@@ -17,10 +17,13 @@ function A(props, result) {
     <div className="App">
         <h1>Result from component A</h1>
 
+        <p>Based on input from A and B
+                {this.state.numC ? `Random number: ${this.state.numC}`: 'Get random number'}</p>
+
         <input type="text" onChange={this.handleChange} value={this.state.numA}  placeholder="Write an integer number" />
                 <br/>
 
-        <A numA={numA} resC={result} />
+        <A numA={numA} result={result} />
     </div>
   );
 }

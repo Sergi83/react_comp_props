@@ -17,7 +17,6 @@ class C extends React.Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
-        this.handleFlagChange = this.handleFlagChange.bind(this)
         this.getRandomNum = this.getRandomNum.bind(this)
     }
 
@@ -52,11 +51,6 @@ class C extends React.Component {
         
     }
 
-    // 
-    handleFlagChange() {
-        this.setState({flag: !this.state.flag})
-    }
-
 
     // TODO: Write button function that take count min and max from A and  B, then random number pass to B and from B to A
 
@@ -66,26 +60,15 @@ class C extends React.Component {
             <div>
 
                 <h1>Random number from C</h1>
-                <p>Based on input from A and B
-                {numC ? `Random number: ${numC}`: 'Get random number'}</p>
+                
 
                 <button
                 type="button"
-                onClick={()=> getRandomNum()}
+                onClick={()=> getRandomNum(numA, numB)}
                 >
                     
 
             </button>
-
-
-
-            {/* onChange binding with handleChange method */}
-                <input type="text" onChange={this.handleChange} value={this.state.num} />
-                <br/>
-                <button onClick={this.handleFlagChange}>randomizer(C)</button>
-                {this.state.flag && <Title title={this.state.num} close={this.handleFlagChange}/>}
-
-                {/* or {this.state.flag ? (<Title title={this.state.name} myFunc={this.handleFlagChange}/>):null} */}
             </div>
         )
     }

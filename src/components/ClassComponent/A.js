@@ -2,30 +2,64 @@ import React from 'react';
 import B from './B';
 
 
-// 1. Створити класовий компонент в якому з допомогою стану компоненту всі дані з інпута в який юзер буде вводити текст - будуть в режимі реального часу відображатись в функціональному компоненті в h1 тегу. 
-	
-	
-	// 2. Створити 3 компонента крізь які будемо передавати функцію з рандомним числом та повертати в головний компонент  де отримане значення з компонента  С будемо множити на 1000 та записувати в стейт . (А -> B -> C > B > A)
+// TODO: 1) render a text from input in class component A; 2) take props from B (passed from C) component
 
-const mult = 1000;
-const result = numC*mult;
 
-function A(props, result) {
-  console.log(numA, numC, 'A res');
+class C extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            test: "",
+            
+            // flag: true
+        }
 
-  return (
-    <div className="App">
-        <h1>Result from component A</h1>
+        this.handleChange = this.handleChange.bind(this)
+        // this.getRandomNum = this.getRandomNum.bind(this)
+    }
 
-        <p>Based on input from A and B
-                {this.state.numC ? `Random number: ${this.state.numC}`: 'Get random number'}</p>
 
-        <input type="text" onChange={this.handleChange} value={this.state.numA}  placeholder="Write an integer number" />
-                <br/>
+    
+    // setState method write data to props ("this.state" "name")
+    handleChange(e) {
 
-        <A numA={numA} result={result} />
-    </div>
-  );
+        this.setState({
+            test: e.target.value
+            // flag: !this.state.flag,
+            // count: 1
+        })
+        
+    }
+
+
+    // TODO: Write button function that take count min and max from A and  B, then random number pass to B and from B to A
+
+    
+    render() {
+        return(
+            <div>
+
+                
+                <h2>Text from input in A: {this.state.test}</h2>
+
+                <input type="text" onChange={this.handleChange} value={this.state.test}  placeholder="Write something ('test' - show some random number)" />
+
+                {/*  */}
+
+                <h1>Random number from C: {randomNum*1000}</h1>
+                <B num={this.props.children.num}/>
+                <button
+                type="button"
+                onClick={(this.props.children.num)=> randomNum = this.children.num}
+                >
+                    
+
+            </button>
+            </div>
+        )
+    }
+
 }
 
-export default A;
+
+export default C;

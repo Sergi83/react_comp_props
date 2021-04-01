@@ -2,78 +2,34 @@ import React from 'react';
 import B from './B';
 
 
-// TODO: take some number from input in A through B (here take another number) -> here find random number between A and B -> pass the random number to A through B
+// 1. Створити класовий компонент в якому з допомогою стану компоненту всі дані з інпута в який юзер буде вводити тест - будуть в режимі реального часу відображатись в функціональному компоненті в h1 тегу. 
+	
+	
+	// 2. Створити 3 компонента крізь які будемо передавати функцію з рандомним числом та повертати в головний компонент  де отримане значення з компонента  С будемо множити на 1000 та записувати в стейт . (А -> B -> C > B > A)
 
-// TODO: here create function that make random numbers
-class C extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            numC: "",
-            numB,
-            numA,
-            
-            flag: true
-        }
+  // TODO: here create function that make random numbers (if word test is in props)
 
-        this.handleChange = this.handleChange.bind(this)
-        this.getRandomNum = this.getRandomNum.bind(this)
-    }
+function C(props) {
+  console.log(props.test, 'C res');
 
+  if (props.test == "test") {
+  // get random number (function)
+  let num = Math.random().toFixed(4);
 
-    // get random number (function)
-    getRandomNum (numA, numB) {
-        if (numA > numB) {
-            this.setState({ 
-                numC: (Math.floor(Math.random() * (numA - numB + 1)) + numB).target.value
-            })
-        } else if (numA < numB) {
-            this.setState({ 
-                numC: (Math.floor(Math.random() * (numB - numA + 1)) + numA).target.value
-            })
-        } else if (numA == numB) {
-            this.setState({ 
-                numC: (Math.floor(Math.random() * (numA - numB + 1)) + numB).target.value
-            })
-        } else {
-            console.log("Some error: numA, numB", numA, numB)
-        }
-    }
+  return (
+    <div>
+        {/* <h1>Result from component C</h1>
 
-    // setState method write data to "this.state" "name"
-    handleChange(e) {
+        <p>Based on input from A and B
+                {this.state.numC ? `Random number: ${this.state.numC}`: 'Get random number'}</p>
 
-        this.setState({
-            num: e.target.value,
-            flag: !this.state.flag,
-            // count: 1
-        })
-        
-    }
+        <input type="text" onChange={this.handleChange} value={this.state.numA}  placeholder="Write an integer number" /> */}
+                <br/>
 
-
-    // TODO: Write button function that take count min and max from A and  B, then random number pass to B and from B to A
-
-    
-    render() {
-        return(
-            <div>
-
-                <h1>Random number from C</h1>
-                
-
-                <button
-                type="button"
-                onClick={()=> getRandomNum(numA, numB)}
-                >
-                    
-
-            </button>
-            </div>
-        )
-    }
-
+        <C num={this.props.num} />
+    </div>
+  );
 }
-
+}
 
 export default C;

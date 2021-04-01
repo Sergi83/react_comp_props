@@ -3,14 +3,15 @@ import C from './C';
 import A from './A';
 
 function B(props) {
-    console.log(numA, numC, 'B res');
+    console.log(numA, numC, 'B component');
   return (
-    <div className="App">
-        <h2>Result from component B</h2>
-
-        <input type="text" onChange={this.handleChange} value={this.state.numB} placeholder="Write an integer number" />
+    // Result from component B
+    <div>
+        
+{/* 
+        <input type="text" onChange={this.handleChange} value={this.state.numB} placeholder="Write an integer number" /> */}
                 <br/>
-        <B  numA={numA} numB={numB} numC={numC}/>
+        <B  test={props.test} num={props.num}/>
     </div>
   );
 }

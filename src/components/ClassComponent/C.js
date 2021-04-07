@@ -23,8 +23,13 @@ console.log(num, 'C num');
 
   return (
     <div>
-    
-        <br></br> 
+
+    <br/>
+
+
+
+
+    <br></br> 
 
         <B randomNum={num} button={btn} />
     </div>

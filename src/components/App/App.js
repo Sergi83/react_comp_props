@@ -5,16 +5,12 @@ import A from './../ClassComponent/A';
 // import C from '../ClassComponent/C';
 
 function App(props) {
-  console.log(props.test, "test props");
-  // let link = "https://reactjs.org";
+  console.log(props, "app props");
 
   return (
     <div className="App">
     <A />
-      {/* <header className="App-header">
-      
-        { props.data ? (<span>{props.textForDiv}</span>) : null}
-      </header> */}
+    
     </div>
   );
 }

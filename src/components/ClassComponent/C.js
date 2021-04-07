@@ -10,26 +10,31 @@ import B from './B';
   // TODO: here create function that make random numbers (if word test is in props)
 
 function C(props) {
-  console.log(props.test, 'C res');
+  console.log(props, 'C res');
 
-  if (props.test == "test") {
+  // if (props.test === "test") {
+
   // get random number (function)
-  let num = Math.random().toFixed(4);
+  let num = Math.random().toFixed(4)*1000;
+  let btn = <button type="button" onClick={() => props.changeNum(Math.random().toFixed(4)*1000)} >Random number
+  </button>;
+
+console.log(num, 'C num');
 
   return (
     <div>
-        {/* <h1>Result from component C</h1>
+    
+        <br/>
 
-        <p>Based on input from A and B
-                {this.state.numC ? `Random number: ${this.state.numC}`: 'Get random number'}</p>
+                    
+        
+          
+        <br></br> 
 
-        <input type="text" onChange={this.handleChange} value={this.state.numA}  placeholder="Write an integer number" /> */}
-                <br/>
-
-        <C num={this.props.num} />
+        <B randomNum={num} button={btn} />
     </div>
-  );
-}
+  )
+// }
 }
 
 export default C;

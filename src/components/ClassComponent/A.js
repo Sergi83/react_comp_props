@@ -63,7 +63,6 @@ class A extends React.Component {
                 />
 
 
-                {/* in class component need to write a props with this.props. ... */}
                 { this.props.test ? <h1>Random number from C: {this.props.test}</h1> : null}
 
             </div>

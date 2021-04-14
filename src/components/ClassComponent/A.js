@@ -22,11 +22,19 @@ class A extends React.Component {
     
     // setState method write data to props ("this.state" "test")
     handleChange(e) {
+        console.log(e);
+
+        // e - the event after pushed button in component C
+        let a = e*1000;
+
+        // 
+        if (e && e.target && e.target.value) {
+            // a - containe any input value and value from component C after pushed button (get random number - function), if value from function - the value * 1000
+            a = e.target.value
+        }
 
         this.setState({
-            test: e.target.value
-            // flag: !this.state.flag,
-            // count: 1
+            test: a
         })
         
     }
@@ -36,23 +44,27 @@ class A extends React.Component {
         return(
             <div>
 
-                <h2>Text from input in A: {this.state.test}</h2>
+                <B 
+                    test={this.state.test} 
+                    changeNum={this.handleChange} 
 
-                <input type="text" onChange={this.handleChange} value={this.state.test}  placeholder="Write some text ('test' - show some random number)" />
+                    />
 
-                <h1>{this.state.test}</h1>
+                <h2>
+                Text from input in A: {this.state.test}
+                </h2>
 
-                { this.state.test &&
-                <B test={this.state.test} changeNum={this.handleChange} />}
-                {/*  */}
-                <button 
-                type="button"
-                onClick={this.handleChange} >
-                btnA
-                </button>
+                <input 
+                type="text" 
+                onChange={this.handleChange} 
+                value={this.state.test} 
+                placeholder="Write some text ('test' - show some random number)" 
+
+                />
+
 
                 {/* in class component need to write a props with this.props */}
-                { props.randNum ? <h1>Random number from C: {props.randNum}</h1> : null}
+                { this.props.test ? <h1>Random number from C: {this.props.test}</h1> : null}
 
             </div>
         )

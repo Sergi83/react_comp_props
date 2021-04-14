@@ -12,29 +12,22 @@ import B from './B';
 function C(props) {
   console.log(props, 'C res');
 
-  // if (props.test === "test") {
+  if (props.test) {
 
   // get random number (function)
-  let num = Math.random().toFixed(4)*1000;
-  let btn = <button type="button" onClick={() => props.changeNum(Math.random().toFixed(4)*1000)} >Random number
-  </button>;
-
+  let num = Math.random().toFixed(4);
 console.log(num, 'C num');
 
   return (
     <div>
-
-    <br/>
-
-
-
-
     <br></br> 
+        <B randNum={this.num}  />
 
-        <B randomNum={num} button={btn} />
+        <button type="button" onClick={() => props.changeNum(this.num)} >Random number
+  </button>
     </div>
   )
-// }
+}
 }
 
 export default C;

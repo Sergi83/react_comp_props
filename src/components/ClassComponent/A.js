@@ -31,37 +31,28 @@ class A extends React.Component {
         
     }
 
-
-    // TODO: Write button function that take count min and max from A and  B, then random number pass to B and from B to A
-
-    // let randomNum;
-
     render() {
 
         return(
             <div>
 
-                <B test={this.state.test} changeNum={this.handleChange} />
                 <h2>Text from input in A: {this.state.test}</h2>
 
-                <input type="text" onChange={this.handleChange} value={this.state.test}  placeholder="Write something ('test' - show some random number)" />
+                <input type="text" onChange={this.handleChange} value={this.state.test}  placeholder="Write some text ('test' - show some random number)" />
 
-                
+                <h1>{this.state.test}</h1>
 
+                { this.state.test &&
+                <B test={this.state.test} changeNum={this.handleChange} />}
                 {/*  */}
-                {/* <button 
+                <button 
                 type="button"
-                onClick={() => {props.randomNum} ? {props.randomNum} : null} >
-                Random number
-                </button> */}
+                onClick={this.handleChange} >
+                btnA
+                </button>
 
-                
-                
-                { this.props.number ? (
-                    {props.btnRandom}
-                    <h1>Random number from C: {this.props.number}</h1>
-                    ) : null}
-                
+                {/* in class component need to write a props with this.props */}
+                { props.randNum ? <h1>Random number from C: {props.randNum}</h1> : null}
 
             </div>
         )

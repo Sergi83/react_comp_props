@@ -5,19 +5,21 @@ import A from './A';
 function B(props) {
     console.log(props, 'B component');
 
-    if (this.props.test) {
+    // 1. can wrap return into if statement
+    if (props.test && props.changeNum) {
 
   return (
     // Result from component B
     <div>
-        
-        <br/>
-        
           <C test={props.test} changeNum={props.changeNum}/>
-        <A number={props.randomNum} btnRandom={props.button} />
-        
     </div>
   );
+}
+// 2. do not send props back to A - infinite loop
+if (props.randNum ) {
+  <div>
+  <A randNum={props.randNum} />
+  </div>
 }
 }
 
